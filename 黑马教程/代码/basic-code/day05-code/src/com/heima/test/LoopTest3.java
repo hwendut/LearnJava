@@ -25,7 +25,6 @@ public class LoopTest3 {
             if (x % i == 0) {
                 flag = false;
                 break;
-
             }
         }
         if (flag) {

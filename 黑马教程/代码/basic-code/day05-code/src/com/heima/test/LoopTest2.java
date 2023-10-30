@@ -27,6 +27,4 @@ public class LoopTest2 {
             }
         }
     }
-
-
 }

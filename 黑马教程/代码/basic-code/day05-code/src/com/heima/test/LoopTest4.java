@@ -31,6 +31,5 @@ public class LoopTest4 {
                 System.out.println("小了");
             }
         }
-
     }
 }
