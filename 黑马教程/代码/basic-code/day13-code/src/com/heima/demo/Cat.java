@@ -1,6 +1,4 @@
-package com.heima;
-
-import org.w3c.dom.ls.LSOutput;
+package com.heima.demo;
 
 public class Cat extends Animal{
     public void zhuanlaoshu() {

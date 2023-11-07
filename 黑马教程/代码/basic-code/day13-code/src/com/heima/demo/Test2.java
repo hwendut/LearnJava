@@ -1,4 +1,4 @@
-package com.heima;
+package com.heima.demo;
 
 public class Test2 {
     public static void main(String[] args) {

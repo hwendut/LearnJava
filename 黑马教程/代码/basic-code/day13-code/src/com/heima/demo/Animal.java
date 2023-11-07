@@ -1,4 +1,4 @@
-package com.heima;
+package com.heima.demo;
 
 public class Animal {
     public void eat() {

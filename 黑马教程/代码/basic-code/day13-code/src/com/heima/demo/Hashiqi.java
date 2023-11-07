@@ -1,4 +1,4 @@
-package com.heima;
+package com.heima.demo;
 
 public class Hashiqi extends Dog{
     public void chaijia() {
