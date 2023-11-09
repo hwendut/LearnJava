@@ -1,7 +1,5 @@
 package com.heima;
 
-import java.util.Scanner;
-
 public class Test {
     public static void main(String[] args) {
         /*Fu a = new Zi();
@@ -11,10 +9,12 @@ public class Test {
         b.printFu();
         b.eat();*/
 
-        Outer.Inner oi = new Outer().new Inner();
-        oi.show();
+//        Outer.Inner oi = new Outer().new Inner();
+//        oi.show();
 
-        Scanner sc = new Scanner(System.in);
-        sc.next();
+//        Scanner sc = new Scanner(System.in);
+//        sc.next();
+        Outer o = new Outer();
+        o.show();
     }
 }

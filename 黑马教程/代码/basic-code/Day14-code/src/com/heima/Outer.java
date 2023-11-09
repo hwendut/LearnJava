@@ -13,4 +13,20 @@ public class Outer {
             System.out.println(a);
         }
     }
+
+    public void show() {
+        int a = 20;
+
+        class Inner{
+            int a = 30;
+            public void method() {
+                System.out.println(a);
+                System.out.println(this.a);
+                System.out.println(Outer.this.a);
+            }
+        }
+
+        Inner i = new Inner();
+        i.method();
+    }
 }
