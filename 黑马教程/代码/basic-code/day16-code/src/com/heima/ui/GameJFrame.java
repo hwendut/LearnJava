@@ -1,10 +1,16 @@
 package com.heima.ui;
 
 import javax.swing.*;
+import java.util.Random;
 
 public class GameJFrame extends JFrame {
     // 游戏主界面
     // 游戏相关逻辑代码，写在此处
+
+    // 创建二维数组
+    // 用来管理数据
+    // 加载图片的时候，会根据二维数组中的数据进行加载
+    int[][] data = new int[4][4];
 
     public GameJFrame() {
         // 初始化界面
@@ -13,14 +19,43 @@ public class GameJFrame extends JFrame {
         // 初始化菜单
         initJMenuBar();
 
-        // 初始化图片
+        // 初始化数据（打乱）
+        initData();
+
+        // 初始化图片（根据打乱之后的结果去加载图片）
         initImage();
 
         // 让界面显示出来，建议写在最后
         setVisible(true);
     }
 
+    private void initData() {
+        // 定义一维数组
+        int[] arr = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+        // 打乱数组中的数据的顺序
+        // 遍历数组，得到每一个元素，再将该元素和随机索引上的数据交换
+        Random r = new Random();
+        for (int i = 0; i < arr.length; i++) {
+            int temp = arr[i];
+            int randomIndex = r.nextInt(arr.length);
+            arr[i] = arr[randomIndex];
+            arr[randomIndex] = temp;
+        }
+
+        // 解法1
+        for (int i = 0; i < arr.length; i++) {
+            data[i / 4][i % 4] = arr[i];
+        }
+
+        // 解法2
+        // 遍历二维数组，给二维数组的每一个数据赋值
+        /*for (int i = 0; i < data.length; i++) {
+            System.arraycopy(arr, i * 4 + 0, data[i], 0, data[i].length);
+        }*/
+    }
+
     // 初始化图片
+    // 添加图片的时候，需要按照二维数组中管理的数据添加图片
     private void initImage() {
         /*// 创建一个图片对象
         ImageIcon icon = new ImageIcon("C:\\Users\\wenhao\\Desktop\\LearnJava\\黑马教程\\代码\\basic-code\\day16-code\\image\\animal\\animal3\\3.jpg");
@@ -32,18 +67,18 @@ public class GameJFrame extends JFrame {
         // add(jLabel);
         getContentPane().add(jLabel);*/
 
-        int number = 1;
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
+                // 获取需要加载的图片的序号
+                int num = data[i][j];
                 // 创建图片对象和管理容器
-                JLabel jLabel = new JLabel(new ImageIcon("C:\\Users\\wenhao\\Desktop\\LearnJava\\黑马教程\\代码\\basic-code\\day16-code\\image\\animal\\animal3\\" + number + ".jpg"));
+                JLabel jLabel = new JLabel(new ImageIcon("C:\\Users\\wenhao\\Desktop\\LearnJava\\黑马教程\\代码\\basic-code\\day16-code\\image\\animal\\animal3\\" + num + ".jpg"));
                 // 指定图片的位置
                 jLabel.setBounds(105 * j, 105 * i, 105, 105);
                 // 把管理容器添加到界面中
                 getContentPane().add(jLabel);
                 // 添加一次后number自增，表示添加下一张图片
                 // 第16张图需要注意：因为没有这张图，所以jLabel找不到，他会加载一张空白
-                number++;
             }
         }
     }
