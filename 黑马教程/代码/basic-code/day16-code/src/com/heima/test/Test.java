@@ -41,7 +41,7 @@ public class Test {
                 data[i][j] = arr[i * 4 + j];
             }
         }
-        
+
         // 遍历data
         for (int i = 0; i < data.length; i++) {
             for (int j = 0; j < data[i].length; j++) {
